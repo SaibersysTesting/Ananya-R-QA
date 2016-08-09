@@ -1,0 +1,210 @@
+public static void main( String[] args ) throws FileNotFoundException {
+for( int i=1; i<=5; i++ ){
+for( int j=1; j<=i; j++ ){
+System.out.print ( j );
+}
+System.out.println (); //to print new line for each iteration of outer loop
+}
+}
+
+------------------------------------------------------------------------------------------
+public static void main( String[] args ){
+int p = 0;
+for( int i=1; i<=5; i++ ){
+for( int k=1; k<=5-i; k++ ){
+System.out.print (" ");
+}
+for( int j=1; j<=i+p; j++ ){
+System.out.print ("*");
+}
+System.out.println ();
+p=p+1;
+}
+}
+------------------------------------------------------------------------------------
+
+public static void readFile() throws FileNotFoundException {
+
+FileReader fr = new FileReader("C:\\Users\\...\\Desktop\\unused.txt");
+BufferedReader br = new BufferedReader(fr);
+StringBuffer str = new StringBuffer();
+try {
+while (br.readLine()!= null){
+str.append(br.readLine());
+}
+} catch (IOException e) {
+e.printStackTrace();
+}
+System.out.println(str);
+}
+-------------------------------------------------------------------------------------
+
+public static void reverse() {
+String str = "I use selenium webdriver. selenium is a tool for web applications.";
+int i = str.length();
+StringBuffer strb = new StringBuffer();
+for( int j=i-1; j>=0; j--){
+strb = strb.append(str.charAt(j));
+}
+System.out.println(strb);
+}
+
+-------------------------------------------------------------------------------------
+
+public static void replace() {
+String str = "I use selenium webdriver. selenium is a tool for web applications automation.";
+String toBeReplaced = "selenium";
+String toReplacedWith = "Firefox";
+String[] astr = str.split(toBeReplaced);
+StringBuffer strb = new StringBuffer();
+for ( int i = 0; i <= astr.length - 1; i++ ) {
+strb = strb.append( astr[i] );
+if (i != astr.length - 1) {
+strb = strb.append(toReplacedWith);
+}
+}
+System.out.println(strb);
+
+}
+
+--------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+public class PrimeNumbers {
+
+public static void main(String[] args) {
+Scanner s = new Scanner(System.in);
+System.out.print(“Enter a number : “);
+int n = s.nextInt();
+if (isPrime(n)) {
+System.out.println(n + ” is a prime number”);
+} else {
+System.out.println(n + ” is not a prime number”);
+}
+}
+
+public static boolean isPrime(int n) {
+if (n <= 1) {
+return false;
+}
+for (int i = 2; i < Math.sqrt(n); i++) {
+if (n % i == 0) {
+return false;
+}
+}
+return true;
+}
+}
+
+Enter a number : 7
+7 is a prime number
+
+--------------------------------------------------------------------------------------
+
+Question5: Can you show me one code example of setting Selenium 2.0?
+Answer: below is example
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.co.in/");
+driver.findElement(By.cssSelector("#gb_2 > span.gbts")).click();
+driver.findElement(By.cssSelector("#gb_1 > span.gbts")).click();
+driver.findElement(By.cssSelector("#gb_8 > span.gbts")).click();
+driver.findElement(By.cssSelector("#gb_1 > span.gbts")).click();
+
+Question 6: Which web driver implementation is fastest?
+Answer: HTMLUnitDriver. Simple reason is HTMLUnitDriver does not execute tests on browser but plain http request – response which is far quick than launching a browser and executing tests. But then you may like to execute tests on a real browser than something running behind the scenes
+
+Question 7: What all different element locators are available with Selenium 2.0?
+Answer: Selenium 2.0 uses same set of locators which are used by Selenium 1.0 – id, name, css, XPath but how Selenium 2.0 accesses them is different. In case of Selenium 1.0 you don’t have to specify a different method for each locator while in case of Selenium 2.0 there is a different method available to use a different element locator. Selenium 2.0 uses following method to access elements with id, name, css and XPath locator –
+driver.findElement(By.id("HTMLid"));
+driver.findElement(By.name("HTMLname"));
+driver.findElement(By.cssSelector("cssLocator"));
+driver.findElement(By. className ("CalssName”));
+driver.findElement(By. linkText ("LinkeText”));
+driver.findElement(By. partialLinkText ("PartialLink”));
+driver.findElement(By. tagName ("TanName”));
+driver.findElement(By.xpath("XPathLocator));
+
+Question 8:  How do I submit a form using Selenium?
+Answer:
+WebElement el  =  driver.findElement(By.id("ElementID"));
+el.submit();
+
+Question 9: How to capture screen shot in Webdriver?
+Answer:
+File file= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+FileUtils.copyFile(file, new File("c:\\name.png"));
+
+Question 10: How do I clear content of a text box in Selenium 2.0?
+Answer:  
+WebElement el  =  driver.findElement(By.id("ElementID"));
+el.clear();
+
+Question 11:  How to execute java scripts function.
+Answer:
+JavascriptExecutor js = (JavascriptExecutor) driver;
+String title = (String) js.executeScript("pass your java scripts");
+
+Question 12:  How to select a drop down value using Selenium2.0?
+Answer: See point 16 in below post: 
+Click here for answer
+
+Question 13: How to automate radio button in Selenium 2.0?
+Answer:
+WebElement el = driver.findElement(By.id("Radio button id"));
+
+//to perform check operation
+el.click()
+
+//verfiy to radio button is check it return true if selected else false
+el.isSelected()
+
+Question 15: How to count total number of rows of a table using Selenium 2.0?
+Answer: 
+List {WebElement} rows = driver.findElements(By.className("//table[@id='tableID']/tr"));
+int totalRow = rows.size();
+
+Question 16:  How to capture page title using Selenium 2.0?
+Answer:
+String title =  driver.getTitle()
+
+Question 17:  How to store page source using Selenium 2.0?
+Answer:
+String pagesource = driver.getPageSource()
+
+Question 18: How to store current url using selenium 2.0?
+Answer: 
+String currentURL  = driver.getCurrentUrl()
+
+Question 19: How to assert text assert text of webpage using selenium 2.0?
+Answer:
+WebElement el  =  driver.findElement(By.id("ElementID"));
+//get test from element and stored in text variable
+String text = el.getText();
+
+//assert text from expected
+Assert.assertEquals("Element Text", text);
+
+Question 20: How to get element attribute using Selenium 2.0?
+Answer:
+WebElement el  =  driver.findElement(By.id("ElementID"));
+//get test from element and stored in text variable
+String attributeValue = el. getAttribute("AttributeName") ;
+
+Question 21: How to double click on element using selenium 2.0?
+Answer:
+WebElement el  =  driver.findElement(By.id("ElementID"));
+
+Actions builder = new Actions(driver);
+builder.doubleClick(el).build().perform();
+
+Question 22: How to perform drag and drop in selenium 2.0?
+Answer:
+WebElement source  =  driver.findElement(By.id("Source ElementID"));
+WebElement destination  =  driver.findElement(By.id("Taget ElementID"));
+
+Actions builder = new Actions(driver);
+builder.dragAndDrop(source, destination ).perform();
+
+Question 23: How to maximize window using selenium 2.0?
+Answer:
+driver.manage().window().maximize();
