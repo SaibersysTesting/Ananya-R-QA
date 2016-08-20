@@ -1,0 +1,176 @@
+What do you mean by database?
+
+- Database refers to a collection logically coherent data. 
+- It is designed, built and populated with data for a specific purpose. 
+
+It possesses following characteristics: 
+- Some inherent meaning, 
+- Some aspect of real world 
+Define stored procedure.
+
+Stored procedure is a set of pre-compiled SQL statements, executed when it is called in the program.
+Define Trigger.
+
+- Triggers are similar to stored procedure with the difference that they get automatically executed when any operations occur in the table.
+Explain - a.) Storage Manager b.) Buffer Manager c.) Transaction Manager d.) File Manager
+
+a.) Storage Manager - A program module providing the interface between low-level data in database, application programs & queries submitted to the system is referred to as a storage manager. 
+
+b.) Buffer Manager - A program module responsible to get data from disk storage into main memory and decide on the data that should exist in cache memory.
+
+c.) Transaction Manager - A program module ensuring that database remains in a consistent state even after the system failures and concurrent transaction execution keeps going on without conflicting.
+
+d.) File Manager - A program module that manages space allocation on disk and data structure used to represent information on a disk.
+List some advantages of DBMS.
+
+DBMS is useful in: 
+
+1. Controlling redundancy
+2. Restricting unauthorised access
+3. Giving backup & recovery
+4. Providing multiple user interfaces
+5. Getting integrity constraints enforced
+Explain the various types of normalization.
+
+When we create a database, we include all the required columns in it but we see that there is a lot of redundant data in it. To get rid of this redundant data, the table is split and this process is called normalization. 
+
+1. First Normal Form (1NF) - In this state a relation all underlying domains compulsorily contain atomic values only. After 1NF, it is still possible for the system to possess some redundant data. 
+
+2. Second Normal Form (2NF) - A relation in this state is
+a.) Compulsorily in 1 NF
+b.) Every non key attribute is fully dependent on the primary key. 
+
+Even after 2NF, there is a possibility of possessing some redundant data.
+
+3. Third Normal Form (3NF) –
+a.) A relation in this state is in 2NF 
+b.) Additionally every non key attribute is non-transitively dependent on the primary key.
+What are the advantages of normalizing a database.
+
+Advantages of normalizing database are as follows: 
+
+1. Prevents duplicate entries
+2. Conserves storage space
+3. Improves the performance of queries
+What is Denormalization?
+
+Adding redundant data to the database to get rid of complex data is called as denormalization.
+Differentiate between Delete and Truncate table.
+
+- Delete logs the deletion of each row whereas Truncate doesn't log deleted rows in the transaction log. 
+- This makes truncate command a bit faster than Delete command.
+Differentiate between Extension & Intension.
+
+
+Extension is the number of tuples present in a table at any instance while Intension is a constant value that provides the name, structure of table and the constraints on it. 
+
+Extension is time dependent. 
+Explain Data Independence & its types.
+
+Data independence means that the application is independent of 
+
+a.) storage structure 
+b.) access strategy of data
+
+It implies that the modification in schema definition at one level does not affect the schema definition at the next higher level.
+
+There are two types of data independence - Physical & Logical. 
+
+a.) Physical Data Independence: Any change in physical level does not affect the logical level. 
+b.) Logical Data Independence: Changes made at logical level do not affect the view level.
+Explain a. Entity b. Entity Type c. Entity Set
+
+a. Entity - A thing that has got an independent existence is called entity. 
+b. Entity type - Collection of entities with same attributes. 
+c. Entity set - Collection of entities of a particular type in the database. 
+Explain a.) Partial key b.) Alternate key c.) Artificial key d.) Compound key e.) Natural key
+
+a.) Partial Key: Also referred to as Discriminator at times, partial key refers to a set of attributes that
+
+- Have the ability to uniquely identify weak entities 
+- Are related to same owner entity. 
+
+b.) Alternate Key: It is a set of all Candidate Keys excluding the Primary Key
+
+c.) Artificial Key: When there's no conspicuous key available like stand alone key or compound key. we create a new key called artificial key. This is done by assigning a unique number to each record or occurrence.
+
+d.) Compound Key: When it is not possible for a single data element to uniquely identify the occurrences in a construct, a combination of multiple elements is used to create an identitfier which is unique. This unique identifier is known as Compound Key. 
+
+e.) Natural Key: Sometime we use a data element stored in a construct as the primary key, it is called as a natural key.
+Explain Phantom Deadlock.
+
+- During the process of distributed deadlock detection, sometime a delay occurs while propagating local information and this leads to deadlock detection algorithms pointing to deadlocks that do not actually occur. 
+- These deadlocks are referred to as phantom deadlocks, as they do not really exist. 
+- Phantom deadlock lead to unnecessary abortions. 
+Explain the following frequently used terms in Database.
+
+1. Field - An area within a record that is reserved for a specific data. 
+
+Examples: Customer ID, A/c No. etc
+
+2. Record - Collection of values / fields of a specific entity. E.g. Customer, Account etc. 
+
+3. Table - Collection of records of a specific type. E.g. Customer Table, Phone numbers table etc. 
+What happens when Shared and Exclusive locks are applied on data item?
+
+- If a shared lock is applied on a data item, other transactions can not write on it. They can only read the item.
+
+- If an exclusive lock is applied on a data item, other transactions can neither read nor write on the data item.
+List the properties of a transaction.
+
+Properties of a database transaction are recognized by the acronym - ACID. 
+
+1. Atomicity
+2. Consistency
+3. Isolation
+4. Durability
+What is a view?
+
+- A view is a virtual table. 
+- A table contains real data while a view just contains queries that are capable of dynamically retrieving the data when used.
+What is a materialized view?
+
+- Materialized views are disk based views. 
+- Materialized views get updated periodically based on the interval specified in the query.
+- Materialized views can be indexed.
+What are the advantages of views in a database?
+
+Advantages of views in a database are: 
+
+1. The data in views is not stored at any physical location. This saves resources and still gets the output. 
+2. Since data insertion, update and deletion is not possible with the view, it puts a restriction on the access. 
+What are the disadvantages of views in a database?
+
+Disadvantages of views in a database are:
+
+1. If you drop a table, related view becomes irrelevant.
+2. Since the view is generated with a query requesting the data, it is a little slow. 
+3. If you create views for large tables, more memory is occupied.
+What do you mean by Cluster and Non cluster Index?
+
+Clustered Index - 
+
+- A clustered index reorders the way records in the table are physically stored. 
+- There can be only one clustered index per table. 
+- It makes data retrieval faster.
+
+Non-clustered Index
+
+- A non-clustered index does not make any changes to the way the records were stored but creates a completely separate object inside the table. 
+- This makes the insert and update command work faster.
+What are B-trees?
+
+- These are data structures in the form of trees that store sorted data. 
+- They allow searches, insertions, sequential access and deletions to be carried out in logarithmic time.
+ What is Table Scan and Index Scan?
+
+- Table Scan - Iterating over the table rows 
+- Index Scan - Iterating over the index items
+Explain Database partitioning. What is its importance?
+
+Database partitioning refers to dividing the large database into small logical units. It helps in improving the management, availability & performance of the system. 
+
+The advantages of database partitioning are: 
+
+i.) It improves and speeds up the performance of queries 
+ii.) You can easily bigger parts of a partition
