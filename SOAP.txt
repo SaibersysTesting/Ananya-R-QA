@@ -1,0 +1,113 @@
+1) what is json and how is the format look like?
+JSON is short for JavaScript Object Notation, and is a way to store information in an organized, easy-to-access manner. In a nutshell, it gives us a human-readable collection of data that we can access in a really logical manner.
+The JSON syntax is a subset of the JavaScript syntax.
+JSON Syntax Rules
+JSON syntax is derived from JavaScript object notation syntax:
+Data is in name/value pairs
+Data is separated by commas
+Curly braces hold objects
+Square brackets hold arrays.
+A name/value pair consists of a field name (in double quotes), followed by a colon, followed by a value:
+"firstName":"John"
+{"firstName":"John", "lastName":"Doe"}
+example - var employees = [
+    {"firstName":"John", "lastName":"Doe"},
+    {"firstName":"Anna", "lastName":"Smith"},
+    {"firstName":"Peter","lastName": "Jones"}
+];
+
+
+2) how to read from json and create json data
+A common use of JSON is to read data from a web server, and display the data in a web page.
+
+For simplicity, this can be demonstrated by using a string as input (instead of a file).
+<div id="id01"></div>
+
+<script>
+function myFunction(arr) {
+    var out = "";
+    var i;
+    for(i = 0; i<arr.length; i++) {
+        out += '<a href="' + arr[i].url + '">' + arr[i].display + '</a><br>';
+    }
+    document.getElementById("id01").innerHTML = out;
+}
+</script>
+
+<script src="myTutorials.js"></script>
+
+
+3) Method and Description
+1	GET
+The GET method is used to retrieve information from the given server using a given URI. Requests using GET should only retrieve data and should have no other effect on the data.
+
+2	HEAD
+Same as GET, but transfers the status line and header section only.
+
+3	POST
+A POST request is used to send data to the server, for example, customer information, file upload, etc. using HTML forms.
+
+4	PUT
+Replaces all current representations of the target resource with the uploaded content.
+
+5	DELETE
+Removes all current representations of the target resource given by a URI.
+
+6	CONNECT
+Establishes a tunnel to the server identified by a given URI.
+
+7	OPTIONS
+Describes the communication options for the target resource.
+
+8	TRACE
+Performs a message loop-back test along the path to the target resource.
+
+4) what is XML and what will be format
+XML is a software- and hardware-independent tool for storing and transporting data.
+XML stands for EXtensible Markup Language
+XML is a markup language much like HTML
+XML was designed to store and transport data
+XML was designed to be self-descriptive
+XML is a W3C Recommendation
+
+<note>
+<to>Tove</to>
+<from>Hi</from>
+<heading>Reminder</heading>
+<body>Meeting this weekend!</body>
+</note>
+
+5) what is web service
+Web services are web application components.Web services can be published, found, and used on the Web.WSDL, SOAP, RDF, and RSS.
+
+
+6) what is soap web service and rest web service
+SOAP
+SOAP stands for Simple Object Access Protocol
+SOAP is an XML based protocol for accessing Web Services.
+SOAP is based on XML
+SOAP is a W3C recommendation
+RESTful Web Services are REST architecture based web services. In REST Architecture everything is a resource. RESTful web services are light weight, highly scalable and maintainable and are very commonly used to create APIs for web based applications.
+
+7) steps to test soap and rest web services using soapUI pro (www.soapui.org)
+
+The SoapUI project is the central point in all SoapUI testing. Once the project is created, you can create and run Functional Tests, LoadTests, create MockServices or much more. In this tutorial, we will walk through two things how to:
+Create a SOAP project
+Add a WSDL
+1) Create a SOAP project
+In the navigator, which is the tree structure at the left in the SoapUI GUI, right click on the project node and select New SOAP Project.
+Note: you can also do ctrl+n (win) or cmd+n (mac) to create a new SOAP Project.
+In the New SOAP Project dialog enter a project name and click OK
+This will create a new project in the Navigator.
+Congratulations, you've just created your first SoapUI Project. Let's add a WSDL.
+Note: If you would like to try importing a project, try importing the Sample SoapUI Project, see Web Service sample project for more details.
+2) Add a WSDL
+In SoapUI the SOAP projects are mostly based on a WSDL. It’s not necessary to start by importing a WSDL, but it makes testing easier since the WSDL contains all information you need about the web service tested; information about the requests and responses, what they contain and much more, which simplifies SoapUI testing greatly.
+Let’s add a WSDL to the project;
+Right click on the project node and select Add WSDL
+The Add WSDL dialog will open.
+Enter http://www.webservicex.com/currencyconvertor.asmx?WSDL and click OK.
+You should now see that the WSDL was successfully added to the project by seeing the operations in the Web Service in the navigator.
+You can double click the Project for a window that gives you overview of your project. As your project and test skills grow, this view will be very important since you can manage a great deal of things at project level, like JDBC Connections (SoapUI Pro only), Security Configurations. SoapUI even contains basic Requirements functionality in the Project Window.
+You can also double click the Interface for an Interface view.
+
