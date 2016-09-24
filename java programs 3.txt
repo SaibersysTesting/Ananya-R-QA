@@ -1,0 +1,237 @@
+write code for creating abstract class
+
+abstract class Car{  
+  abstract void run();  
+}  
+  
+class Maruthi800 extends Car{  
+void run(){System.out.println(" safe to drive ");}  
+  
+public static void main(String args[]){  
+ Car obj = new Maruthi800();  
+ obj.run();  
+}  
+}
+
+=====================================================================================
+
+Implement method overloading
+
+class MethodOverloading
+{
+    public void disp(char c)
+    {
+         System.out.println(c);
+    }
+    public void disp(char c, int num)  
+    {
+         System.out.println(c + " "+num);
+    }
+}
+class Example
+{
+   public static void main(String args[])
+   {
+       MethodOverloading obj = new MethodOverloading();
+       obj.disp('x');
+       obj.disp('x',80);
+   }
+}
+Output:
+x
+x 80
+
+==================================================================================
+
+implement method overriding
+
+class Animal{
+   public void eat()
+   {
+      System.out.println("Animal is eating");
+   }
+}
+class Girl extends Animal{
+   public void eat(){
+      System.out.println("Girl is eating");
+   }
+   public static void main( String args[]) {
+      Girl obj = new Girl();
+      obj.eat();
+   }
+}
+
+==================================================================================
+
+write a code to save data into excel file and read from excel file (POI and jexcel API)
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.annotations.Test;
+ 
+ 
+public class ReadandWriteExcel {
+ 
+ public static void main(String []args){
+  
+  try {
+  // Specify the path of file
+  File src=new File("filepath/excelsheetname.xlsx");
+ 
+   // load file
+   FileInputStream fis=new FileInputStream(src);
+ 
+   // Load workbook
+   XSSFWorkbook wb=new XSSFWorkbook(fis);
+   
+   // Load sheet- Here we are loading first sheetonly
+      XSSFSheet sh1= wb.getSheetAt(0);
+ 
+  // getRow() specify which row we want to read.
+ 
+  // and getCell() specify which column to read.
+  // getStringCellValue() specify that we are reading String data.
+ 
+ 
+ System.out.println(sh1.getRow(0).getCell(0).getStringCellValue());
+ 
+ System.out.println(sh1.getRow(0).getCell(1).getStringCellValue());
+ 
+ System.out.println(sh1.getRow(1).getCell(0).getStringCellValue());
+ 
+ System.out.println(sh1.getRow(1).getCell(1).getStringCellValue());
+ 
+ System.out.println(sh1.getRow(2).getCell(0).getStringCellValue());
+ 
+ System.out.println(sh1.getRow(2).getCell(1).getStringCellValue());
+ 
+  } catch (Exception e) {
+ 
+   System.out.println(e.getMessage());
+ 
+  }
+  
+ }
+ 
+}
+
+
+------------------------------------------------------------------------------------
+
+In below example I am  writing .xlsx file
+
+import java.io.File;
+ 
+import java.io.FileInputStream;
+ 
+import java.io.FileOutputStream;
+ 
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+ 
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+ 
+import org.testng.annotations.Test;
+ 
+public class ReadandWriteExcel {
+ 
+ public static void main(String []args){
+ 
+  try {
+ 
+  // Specify the file path which you want to create or write
+ 
+  File src=new File("./testdata/test.xlsx");
+ 
+  // Load the file
+ 
+  FileInputStream fis=new FileInputStream(src);
+ 
+   // load the workbook
+ 
+   XSSFWorkbook wb=new XSSFWorkbook(fis);
+ 
+  // get the sheet which you want to modify or create
+ 
+   XSSFSheet sh1= wb.getSheetAt(0);
+ 
+ // getRow specify which row we want to read and getCell which column
+ 
+ System.out.println(sh1.getRow(0).getCell(0).getStringCellValue());
+ 
+ System.out.println(sh1.getRow(0).getCell(1).getStringCellValue());
+ 
+ System.out.println(sh1.getRow(1).getCell(0).getStringCellValue());
+ 
+ System.out.println(sh1.getRow(1).getCell(1).getStringCellValue());
+ 
+ System.out.println(sh1.getRow(2).getCell(0).getStringCellValue());
+ 
+ System.out.println(sh1.getRow(2).getCell(1).getStringCellValue());
+ 
+// here createCell will create column
+ 
+// and setCellvalue will set the value
+ 
+ sh1.getRow(0).createCell(2).setCellValue("2.41.0");
+ 
+ sh1.getRow(1).createCell(2).setCellValue("2.5");
+ 
+ sh1.getRow(2).createCell(2).setCellValue("2.39");
+ 
+ 
+// here we need to specify where you want to save file
+ 
+ FileOutputStream fout=new FileOutputStream(new File("location of file/filename.xlsx"));
+ 
+ 
+// finally write content 
+ 
+ wb.write(fout);
+ 
+// close the file
+ 
+ fout.close();
+ 
+  } catch (Exception e) {
+ 
+   System.out.println(e.getMessage());
+ 
+  }
+ 
+ }
+ 
+}
+
+=====================================================================================
+
+Using multiple classes in Java program
+
+class Car {
+  Car() {
+    System.out.println("Constructor of Car class.");
+  }
+ 
+  void car_method() {
+    System.out.println("low fuel.. warning");
+  }
+ 
+  public static void main(String[] args) {
+    Car my = new Car();
+    Bike your = new Bike();
+ 
+    my.car_method();
+    your.bike_method();
+  }
+}
+ 
+class Bike {
+  Bike() {
+    System.out.println("Constructor of Bike class.");
+  }
+ 
+  void bike_method() {
+    System.out.println("10% fuel left.");
+  }
+} 

@@ -1,0 +1,90 @@
+creating static method
+
+static methods in Java can be called without creating an object of class. 
+
+class Staticexample {
+  public static void main(String[] args) {
+    display();
+  }
+ 
+  static void display() {
+    System.out.println("This is a sample program.");
+  }
+}
+
+=======================================================================
+
+import java.lang.Math;
+ 
+class Example {
+  public static void main(String[] args) {
+    int result;
+ 
+    result = Math.min(100, 200); //calling static method min by writing class name
+ 
+    System.out.println(result);
+    System.out.println(Math.max(1000, 2000));
+  }
+}
+
+===========================================================================
+import java.util.Scanner;
+public class MethodExample3 {
+
+public static void Welcome(String name) {
+System.out.println("Welcome to Methods " + name);
+}
+public static void main(String[] args) {
+Scanner keyboard = new Scanner(System.in);
+System.out.print("Input your name: ");
+String myName = keyboard.nextLine();
+Welcome(myName);
+}
+}
+
+=============================================================================
+
+import java.util.Scanner;
+public class MethodExample {
+public static double distance(double x1, double y1, double x2, double y2) {
+return Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
+}
+public static double heron(double a, double b, double c) {
+double p = (a+b+c)/2;
+return Math.sqrt(p*(p-a)*(p-b)*(p-c));
+}
+public static void main(String[] args) {
+Scanner keyboard = new Scanner(System.in);
+System.out.print("Input point 1 as x y: ");
+double x1 = keyboard.nextDouble();
+double y1 = keyboard.nextDouble();
+System.out.print("Input point 2 as x y: ");
+double x2 = keyboard.nextDouble();
+double y2 = keyboard.nextDouble();
+System.out.print("Input point 3 as x y: ");
+double x3 = keyboard.nextDouble();
+double y3 = keyboard.nextDouble();
+double a = distance(x1, y1, x2, y2);
+double b = distance(x1, y1, x3, y3);
+double c = distance(x3, y3, x2, y2);
+System.out.println("The area of the triangle is " + heron(a, b, c));
+}
+}
+
+=======================================================================================
+
+public class Home{
+
+   public Home(String name){
+      // This constructor has one parameter, name.
+      System.out.println("home town is :" + name ); 
+   }
+   
+   public static void main(String []args){
+      // Following statement would create an object myHomeTown
+      Home myHomeTown = new Home( "Hyd" );
+   }
+}
+
+=====================================================================================
+
