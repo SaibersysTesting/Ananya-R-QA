@@ -1,0 +1,409 @@
+1) Which environments are supported by QTP?
+
+QTP supports the following environments
+
+Active X
+Delphi
+Java
+.Net
+Oracle
+People Soft
+Power Builder
+SAP
+Siebel
+Stingray
+Terminal Emulator
+Visual Basic
+Visual Age
+Web
+Web Services
+To learn more about Add-ins and how to use them, watch this video tutorial.
+
+2) What are the types object Repositories in QTP.
+
+QTP Supports 2 types of Object Repository
+
+1) Shared Object Repository (also called Global)
+
+
+2) Per-Action Object Repository, (also called Local)
+
+Per-Action Object Repository is used by default. The extension for Per-Action repository is ".mtr" .
+
+Shared Object Repository is preferable while dealing with dynamic objects which are called in multiple tests. The extension is ".tsr"
+
+
+3) Can we call QTP test from another test using scripting. Suppose there are 4 tests and I want to call these tests in a main script. Is this possible in QTP?
+
+Yes.  You can call 4 or even more scripts in your tests.For this, first you will need to make the Actions in the corresponding scripts re-usable.Then from the destination script you can make calls to these re-usable actions.
+
+4) What is action split and the purpose of using this in QTP?
+
+Action split is to divide an existing action into two parts.The purpose is to divide actions based on their functionality to improve code re-use.
+
+5) How will you handle Java tree in QTP ?
+
+Foremost you will select Java Add - In and launch QTP. Next step record operations on the Java Tree. If you face an issue while recording, you can select Tools > Object Identification > Java, tree object and make changes in mandatory and assistive properties to enable identification.
+
+Tip: You can base you answer on similar lines for any other object of any environment. For example : If the question is how will check SAP checkbox , You say , first I will select SAP Add in ... and so on.
+
+6) Explain how QTP identifies object ?
+
+QTP identifies any GUI Object based on its corresponding properties.  While recording, QTP will identify and store peculiar properties (as defined in the Object Identification settings) in the object repository of the GUI object . At run-time, QTP will compare the stored property values with the on-screen properties, to uniquely identify the GUI object.
+
+Learn more about Object Identification
+
+7) How many types of recording modes in QTP? Which will be used when ?
+
+QTP supports 3 types of recording modes
+ 
+
+1. Normal mode also called Contextual
+
+2. Low-level recording mode
+
+3.Analog mode
+
+Normal Mode: It is the default recording mode and takes full advantage of QTP's Test Object Model. It recognizes objects regardless of their position on -screen. This is the preferred mode of recoding and is used for most of the automation activities.
+
+Low-level recording mode: This mode records the exact x,y co-ordinates of your mouse operations. It is helpful in testing hashmaps. It is useful for recording objects not identified by normal mode of QTP.
+
+Analog mode: This mode records exact mouse and keyboard "movements" you perform in relation to the screen / application window. This mode is useful for the operation such as drawing a picture, recording signature., drag and drop operations.
+
+Learn more about Recording Modes in QTP
+
+8) How will you  call from one action to another action ?
+
+We can call an action in 2 ways
+
+1) Call to copy of Action. - In this ,the Action Object Repository , Script and Datable will be copied to the destination Test Script.
+2) Call to Existing Action. - In this,  Object Repository , Script and Datable  will NOT be copied but a call (reference) would be made to the Action in the source script.
+
+9) What are Virtual Objects?
+
+Your application may contain objects that behave like standard objects but are not recognized by QTP. You can define these objects as virtual objects and map them to standard classes, such as a button or a check box. QTP emulates the user's action on the virtual object during the run session. In the test results, the virtual object is displayed as though it is a standard class object.
+
+For example, suppose you want to record a test on a Web page containing a bitmap that the user clicks. The bitmap contains several different hyperlink areas, and each area opens a different destination page. When you record a test, the Web site matches the coordinates of the click on the bitmap and opens the destination page.
+
+To enable QTP to click at the required coordinates during a run session, you can define a virtual object for an area of the bitmap, which includes those coordinates, and map it to the button class. When you run a test, QTP clicks the bitmap in the area defined as a virtual object so that the Web site opens the correct destination page.
+
+10) How to perform Cross platform testing and Cross browser testing using QTP? Can u explain giving some example?
+
+You will need to create separate Actions which take care of different OS and Browsers
+
+Cross Platform Testing:
+
+Using the Built in Environment Variable you can dig up the OS information.
+
+Eg. Platform = Environment("OS"). Then based on the Platform you need to call the actions which you recorded on that particular platform.
+
+Cross Browser Testing:
+
+Using this code  Eg. Browser("Core Values").GetROProperty("version") you can extract the Browser and its correspondin version. Ex: Internet Explorer 6 or Netscape 5. Based on this value you call the actions which are relevant to that browser.
+
+11) What is logical name of the object?
+
+Logical name is a name  given by  QTP while creating an object in the repository to uniquely identify it from other objects in the application. This name would be used by the QTP to map the object name in script with its corresponding description in the object repository. Ex: Browser("Browser").Page("Guru99") Here Guru99 is the logical name of the object.
+
+12) What is descriptive programming?
+
+Typically ,an object and its properties must be recorded in the Object Repository to enable QTP to perform action s on it. 
+
+Using descriptive programming , you do not store the object and its property values in the Object repository but mention the property value pair directly in the script.
+
+The idea behind descriptive programming is not bypass the object repository but help recogonize dynamic objects.
+
+
+Learn more about Descriptive Programming
+
+13)What are the properties you would use for identifying a browser & page when using descriptive programming ?
+
+You can use the name property
+
+ex: Browser("name:="xxx"").page("name:="xxxx"").....
+ 
+
+OR
+
+We can also use the property "micClass".
+ex: Browser("micClass:=browser").page("micClass:=page")....
+
+14)Can we record an application running on a remote machine using QTP ?
+
+Yes .you can record remote application provided you are accessing application through the local browser not via remoter like citrix.
+
+If you are still unable to record it is advisable install QTP and application, on the same machine
+
+15) Explain the keyword CreateObject with an example.
+
+Creates and returns a reference to an Automation object
+
+SYNTAX: CreateObject(servername.typename [, location])
+
+Arguments
+servername: Required. The name of the application providing the object.
+typename :  Required. The type or class of the object to create.
+location :  Optional. The name of the network server where the object is to be created.
+ 
+
+Example : Set IE = CreateObject("InternetExplorer.Application")
+
+16) Can you switch between Per-Action and Shared Object Repository ? If yes how ?
+
+Yes .We can switch. Go to Test--->Settings--->Resources. Here  you have an option to choose repositories.
+
+
+17) What is Object Spy ? How to Use it ?
+
+Object Spy helps in determining the run & test time object properties & methods of the application under test.
+
+You can access object spy directly from the toolbar or from the Object Repository Dialog Box.
+
+It is very useful during Descriptive Programming
+
+Learn more about Object Spy
+
+18) When ordinal identifiers alone can make an object unique then why they are not given top priority? Why it is first mandatory and next assistive. Why we cannot go for ordinal identifiers directly?
+
+Consider the following -
+
+a) If two objects are overlapped on each other than location based object recognition will fail.
+
+b) If only index based recognition is used your script will work but script execution time will increase.
+
+Hence mandatory and assistive properties are used.
+
+19) What is the file extension of the code file in QTP?
+
+Code file extension is script.mts
+
+20) Explain in brief about the QTP Automation Object Model.
+
+QTP Automation Object model deals with Automation of QTP itself. Almost all configuration and functionality provided by QTP is represented by QTP's Automation Object Model . Almost all dialog boxes in QTP have a corresponding automation object which can set or retrieved using the corresponding properties or methods in the Automation Object Model.QTP Automation Objects can be used along with standard VB programming elements like iterative loops or conditional statements to help you design a script of choice.
+
+21) What is the use of Text output value in QTP?
+
+Text Output values enable you to capture text appearing on the application under test during run-time.
+
+If parameterized, text output values will capture values appearing in each iteration which would be stored in the run-time data table for further analysis.
+
+22) What is Step Generator?
+
+Step Generator enables use to Add Test Steps in your script. Using step generator you can add steps to your script without actually recording it.
+
+23) How to make QTP understand the difference amongst the  same type of objects .Suppose there are 5 check boxes in a page and I have to choose the 2nd one, how to do that through script?
+
+You can use ordinal identifiers like index along with a little descriptive programming for object recognition.
+
+Watch a video of this example.
+
+24) What is Test Fusion Report ?.
+
+Test Fusion Report , displays all aspects of a test run and is organized in a Tree format.
+
+It gives details of each step executed for all iterations.
+
+It also gives Run-time data table, Screen shots and movie of the test run if opted.
+
+25) How can you handle exceptions in QTP?
+
+In QTP Exceptional handling is done by using
+
+a. Recovery Scenarios.
+b. Using “On Error” statement
+
+In Recovery scenario you have to define.
+1. Triggered Events.
+2. Recovery steps.
+3. Post Recovery Test-Run.
+
+At Script Level you can use the On Error Resume Next and On Error Go to 0 statement.
+
+26) What are the types of environment variables in QTP ?
+
+Environment variables in QTP are of three types:
+
+1) Built-in (Read only)
+
+2) User-defined Internal (Read only)
+
+3) User-defined External (Read/Write)
+
+You Set the Environment Variable  using the following syntax 
+
+Environment.Value( "name") = "Guru99"
+
+You can Retrieve the Environment Variable using following syntax
+
+Environment.Value("name") -- This will retrun name as Guru99
+
+Environment.Value("OS")  -- This will return your system OS
+
+27) What is the Difference between Bitmap Check point & Image Check point?
+Bitmap checkpoint does a pixel to pixel comparison of an image or part of an image.
+
+Image checkpoint does do a pixel to pixel comparison but instead compare image properties like alt text , destination url etc.
+
+28) What is the difference between functions and actions in QTP?
+
+Actions have their own Object Repository & Data Table. Actions help make your Test modular and increase reuse. Example: You can divide your script into Actions based on functionality like Login, Logout etc.
+
+Functions is a VB Script programming concept and do not have their own Object Repository or Data Table. Functions help in re-use of your code. Ex:  You can create a Function in your script to concatenate two strings.
+
+29) What is keyword view and Expert view in QTP? 
+
+Keyword View is an icon based view which shows test steps in tabular format. It also automatically generates documentation for the test steps.
+
+Expert View gives the corresponding VB Script statement for every test step in the Keyword view.
+
+30)  Explain QTP Testing process? -
+
+Quick Test testing process consists of 6 main phases:
+
+1)  Create your test plan - This is preparatory phase where you identify the exact test steps, test data and expected results for you automated test. You also identify the environment and system configurations required to create and run your QTP Tests.
+
+2) Recording a session on your application - During this phase , you will execute test steps one by one on your AUT ,and QTP will automatically record corresponding VB script statements for each step performed.
+
+3) Enhancing your test - In this stage you will insert checkpoints , output values , parameterization , programming logic like if…else loops to enhance the logic of your test script.
+
+4) Replay & Debug - After enhancements you will replay the script to check whether its working properly and debug if necessary.
+
+5) Run your Tests - In this phase you will perform the actual execution of your Test Script.
+
+6) Analyzing the test results - Once test run is complete, you will analyze the results in the Test Fusion report generated.
+
+7) Reporting defects - Any incidents identified needs to be reported. If you are using Quality Center , defects can be automatically raised for failed tests in QTP.
+
+31) What are the different types of Test Automation Frameworks ?
+
+The types of Automation Frameworks are -
+
+1) Linear Scripting - Record & Playback
+
+2) The Test Library Architecture Framework.
+
+3)The Data-Driven Testing Framework.
+
+4)The Keyword-Driven or Table-Driven Testing Framework.
+
+Learn more about Test Automation Frameworks.
+
+32) How will you check a web application for broken links using QTP?
+
+You can use the Page Checkpoint which gives a count of valid/invalid links on a page.
+
+33) What is a Run-Time Data Table? Where can I find and view this table?
+
+Data like parameterized output , checkpoint values , output values  are stored in the Run-time Table. It is an xls file which is stored in the Test Results Folder.  It can also be accessed in the Test Fusion Report.
+
+34) What is the difference between check point and output value.
+
+Check point is a verification point that compares a current value for a specified property with the expected value for that property. Based on this comparison, it will generate a PASS or FAIL status. 
+
+An output value is a value captured during the test run and can be stored in a specified location like the  Datable or even a variable. Unlike Checkpoints, no PASS/FAIL status is generated.
+
+35) How would you connect to database using vbscript ?
+
+To connect to the database you must know
+
+a) connection string of your server
+
+b) username
+
+c) password
+
+d) DNS name
+
+You can code the database connectivity command directly or you can use the SQL Query tool provided by QTP.
+
+36) What is QTP batch testing tool?
+
+ You can use the Batch testing tool to run multiple scripts. Once the scripts are added in the tool , it  will automatically open the scripts and start executing them one after the other.
+
+37) What are the drawbacks of QTP?
+
+As of QTP version 10
+
+1) Huge Tests in QTP consume lots of memory and increase CPU utilization.
+
+2) Since QTP stores results in HTML file (and not txt) the result folder sometimes becomes big.
+
+38) What is an Optional Step ?
+
+A step when declared optional is not mandatory to be executed. If the corresponding GUI object is present, QTP performs the operation on it. If the GUI object is not present, QTP bypasses the optional step and proceeds to execute the next step.
+
+39) What  is Reporter.ReportEvent ?
+
+Reporter.Reportvent is standard method provided by QTP to send custom messages to the test results window.
+
+Syntax
+
+Reporter.ReportEvent EventStatus, ReportStepName, Details [, ImageFilePath]
+
+where     
+
+EventStatus = 0 or micPass
+
+                    1 or micFail
+
+                    2 or micDone
+
+                    3 or micWarning
+
+ Results can assume any status like Pass , Fail , Warning etc. You can also send screenshot to the test results window.
+
+40) How will you  declare a variable in QTP ?
+
+You declare using a DIM keyword. You assign value to the variable using the SET keyword.
+
+Ex.
+
+Dim temp 'Will declare the temp variable
+
+Set  temp = 20 ' Will assign a value 20 to temp.
+
+41) What is GetRoProperty ?
+
+ GetRoProperty is a standard method provided by QTP to fetch property values of a run -time object.
+
+42) What is smart Identification?
+
+Typically, if even one of the on-screen object property does not match the recorded object property. The test fails.
+
+In smart identification, QTP does not give an error if the property values do not match, but uses Base filter and Optional Filter properties to uniquely identify an object. In Smart identification, if a property value does not match the script does not fail but it proceeds ahead to compare the next property. Smart identification can be enabled in Object Identification Dialog box.
+
+Learn more about SMART Identification
+
+43) How would you export a Script from one PC to another in QTP ?
+
+We can make use of the "Generate Script" function available in Object Identification, Test Settings and Tools/Options tab to create a zip of the script at the source computer. These zip files then can be imported into QTP at the destination computer.
+
+44) Can launch two instances of QTP on the same machine ?
+
+No. You can work with only single instance of QTP on the same machine. But QTP itself can work on multiple instances of the Application Under Test (AUT). Ex:  QTP can handle multiple IE browser windows.
+
+45) Give the syntax to import/export xls into QTP.
+
+DataTable.ImportSheet "..\..\TestData\Input.xls",1,dtGlobalSheet
+
+DataTable.ExportSheet "..\..\Results\Output.xls","Global"
+
+46) What is SetToProperty ?
+
+SetToProperty changes property of an object stored in the Object Repository. However these changes are not permanent.
+
+47) What is the standard timing delay for web based application in QTP ?
+
+The standard delay is 60 seconds. This is can be changed in Test Settigns.
+
+48) What is the Action Conversion Tool ?
+
+It is an in-built tool provided by QTP to convert Actions into Business Process Components.
+
+49) What is the extension for a function library ?
+
+The extension is  '.QFL'
+
+50) If the Global Data sheet contains no data and the Local Datasheet contains two rows of data, how many times will the test iterate?
+
+The test will iterate only once - global iteration.
