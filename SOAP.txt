@@ -1,0 +1,371 @@
+1) what is json and how is the format look like?
+JSON is short for JavaScript Object Notation, and is a way to store information in an organized, easy-to-access manner. In a nutshell, it gives us a human-readable collection of data that we can access in a really logical manner.
+The JSON syntax is a subset of the JavaScript syntax.
+JSON Syntax Rules
+JSON syntax is derived from JavaScript object notation syntax:
+Data is in name/value pairs
+Data is separated by commas
+Curly braces hold objects
+Square brackets hold arrays.
+A name/value pair consists of a field name (in double quotes), followed by a colon, followed by a value:
+"firstName":"John"
+{"firstName":"John", "lastName":"Doe"}
+example - var employees = [
+    {"firstName":"John", "lastName":"Doe"},
+    {"firstName":"Anna", "lastName":"Smith"},
+    {"firstName":"Peter","lastName": "Jones"}
+];
+
+
+2) how to read from json and create json data
+A common use of JSON is to read data from a web server, and display the data in a web page.
+
+For simplicity, this can be demonstrated by using a string as input (instead of a file).
+<div id="id01"></div>
+
+<script>
+function myFunction(arr) {
+    var out = "";
+    var i;
+    for(i = 0; i<arr.length; i++) {
+        out += '<a href="' + arr[i].url + '">' + arr[i].display + '</a><br>';
+    }
+    document.getElementById("id01").innerHTML = out;
+}
+</script>
+
+<script src="myTutorials.js"></script>
+
+
+3) Method and Description
+1	GET
+The GET method is used to retrieve information from the given server using a given URI. Requests using GET should only retrieve data and should have no other effect on the data.
+
+2	HEAD
+Same as GET, but transfers the status line and header section only.
+
+3	POST
+A POST request is used to send data to the server, for example, customer information, file upload, etc. using HTML forms.
+
+4	PUT
+Replaces all current representations of the target resource with the uploaded content.
+
+5	DELETE
+Removes all current representations of the target resource given by a URI.
+
+6	CONNECT
+Establishes a tunnel to the server identified by a given URI.
+
+7	OPTIONS
+Describes the communication options for the target resource.
+
+8	TRACE
+Performs a message loop-back test along the path to the target resource.
+
+4) what is XML and what will be format
+XML is a software- and hardware-independent tool for storing and transporting data.
+XML stands for EXtensible Markup Language
+XML is a markup language much like HTML
+XML was designed to store and transport data
+XML was designed to be self-descriptive
+XML is a W3C Recommendation
+
+<note>
+<to>Tove</to>
+<from>Hi</from>
+<heading>Reminder</heading>
+<body>Meeting this weekend!</body>
+</note>
+
+5) what is web service
+Web services are web application components.Web services can be published, found, and used on the Web.WSDL, SOAP, RDF, and RSS.
+
+
+6) what is soap web service and rest web service
+SOAP
+SOAP stands for Simple Object Access Protocol
+SOAP is an XML based protocol for accessing Web Services.
+SOAP is based on XML
+SOAP is a W3C recommendation
+RESTful Web Services are REST architecture based web services. In REST Architecture everything is a resource. RESTful web services are light weight, highly scalable and maintainable and are very commonly used to create APIs for web based applications.
+
+7) steps to test soap and rest web services using soapUI pro (www.soapui.org)
+
+The SoapUI project is the central point in all SoapUI testing. Once the project is created, you can create and run Functional Tests, LoadTests, create MockServices or much more. In this tutorial, we will walk through two things how to:
+Create a SOAP project
+Add a WSDL
+1) Create a SOAP project
+In the navigator, which is the tree structure at the left in the SoapUI GUI, right click on the project node and select New SOAP Project.
+Note: you can also do ctrl+n (win) or cmd+n (mac) to create a new SOAP Project.
+In the New SOAP Project dialog enter a project name and click OK
+This will create a new project in the Navigator.
+Congratulations, you've just created your first SoapUI Project. Let's add a WSDL.
+Note: If you would like to try importing a project, try importing the Sample SoapUI Project, see Web Service sample project for more details.
+2) Add a WSDL
+In SoapUI the SOAP projects are mostly based on a WSDL. It’s not necessary to start by importing a WSDL, but it makes testing easier since the WSDL contains all information you need about the web service tested; information about the requests and responses, what they contain and much more, which simplifies SoapUI testing greatly.
+Let’s add a WSDL to the project;
+Right click on the project node and select Add WSDL
+The Add WSDL dialog will open.
+Enter http://www.webservicex.com/currencyconvertor.asmx?WSDL and click OK.
+You should now see that the WSDL was successfully added to the project by seeing the operations in the Web Service in the navigator.
+You can double click the Project for a window that gives you overview of your project. As your project and test skills grow, this view will be very important since you can manage a great deal of things at project level, like JDBC Connections (SoapUI Pro only), Security Configurations. SoapUI even contains basic Requirements functionality in the Project Window.
+You can also double click the Interface for an Interface view.
+
+Q #1. What are webservices?
+
+Ans. Web services are web components that transfer data between client and server. Client sends a web request to the server and the server then responds to client. The response and request are related and different requests evoke the corresponding response.
+
+Web Service is a web component or software program that can be accessed on the Internet. It is mainly used to communicate with the web based applications through XML messaging concepts. For example, if we want to access a particular location using Google Maps, we can use the corresponding web service URL. For that we have to pass the appropriate inputs.
+
+Q #2. What is the primary challenge when testing webservices?
+
+Ans. Majority of the functional testing is carried out via the GUI; the biggest challenge of webservices is that they do not have a UI.
+
+Q #3. What are the communication channels available for a web service?
+
+In general, web service is combined with the following protocols. They are,
+
+HTTP / POST
+HTTP / GET
+SOAP
+While exposing the web services, these channels will be used for communication with the clients. Here HTTP / POST protocol transfers the information between the clients with secure mode. HTTP / GET protocol allows the clients to view transferred data partially at the browser’s address bar. SOAP is used for transferring the confidential data safely.
+
+Q #4. What are the different components can be used in the web services?
+
+There are four components are used in web services. They are,
+
+WSDL – Web Service Description Language
+SOAP – Simple Access Object Protocol
+UDDI – Universal Description, Discovery and Integration
+RDF – Resource Description Framework
+XML – eXtensible Markup Language
+Q #5. What are the tools used for testing Web services?
+
+To perform functional testing for web services, we can use the following tools.
+
+SoapUI
+RESTClient – This is a Firefox plug-in
+JMeter – Specially made it for performance testing tool and also we can do functional testing the web services.
+Q #6. What is WSDL?
+
+Ans. WSDL stands for Web Service Description Language and is a document written in XML. It uses XML to define the service layer document which consists of origin of the web service, headers, port types, request and response data. This one can provide the information about web methods and web service.
+
+It describes:
+
+Origin of the web service
+Header information
+Port type
+Input and output messages
+For more info and examples, check out this article http://www.softwaretestinghelp.com/web-services-api-testing-tool-soapui-tutorial-1/
+
+Q #7. What is the role of WSDL document in web service testing?
+
+Ans. Validating webservices in only possible with WSDL document because to configure web services in SoapUI, WSDL document is mandatory. If the WSDL document is not valid, SoapUI will throw an exception immediately.
+
+Q #8. What is UDDI?
+
+Ans. Universal Description, Discovery and Integration- a directory or global repository where all the webservices can be found. A new Webservice can also be registered through this. This is also the place where WSDL detailed definitions are found.
+
+It uses the discovery layer which is used in the web services. UDDI has all the information about the web services in detail. Global web services can be deployed at http://uddi.xml.org/
+
+Q #9. What is SOAP?
+
+Ans. Simple Object access protocol that uses XML to interact with web applications. It uses XML based content to communicate between two client machines across any network
+
+Q #10. What would be the message format of SOAP protocol?
+
+Generally, all the SOAP based web services are written by using XML language which uses standard message format that is accepted across the universe. In this format, it is easy to read, identify the errors, avoids interoperability problems etc.
+
+Here’s the sample SOAP message format.
+
+POST /InStock HTTP/1.1
+Host: localhost
+Content-Type: application/soap+xml; charset=utf-8
+Content-Length: 399
+SOAPAction: “http://www.example.com/soap-envelope”
+
+<?xml version=”1.0??>
+<soap:Envelope xmlns:soap=”http://www.example.com/soap-envelope”>
+<soap:Header>
+</soap:Header>
+<soap:Body>
+<m:TutorialName>SoapUI</m:TutorialName>
+</soap:Body>
+</soap:Envelope>
+
+Q #11. What are the advantages of SOAP?
+
+Ans. Since its XML based, it is platform and programming language independent. RPC (Remote procedure calls) are sometimes blocked by firewalls and proxy servers- Soap overcomes that.
+
+Q #12. What does a soap document contain?
+
+Ans. Envelope element is the top most tag which identifies the XML document as a SOAP message. Followed by Envelope element, you see the header element that has header information. The Body element specifies the call and response information. Finally, you have a Fault element which contains errors and status information.
+
+Q #13. What is meant by Protocols and what are the major types are used in web services?
+
+A protocol is a set of standard rules that helps to communicate the hardware devices through the software applications. There are different types of protocols used in the Internet and Intranet applications. They are
+
+TCP which stands for Transmission Control Protocol. It has the rules to exchange the messages between two different Internet applications.
+
+Internet Protocol uses the rules for sending and receiving the information between two different Internet addresses.
+
+Similarly, HTTP, FTP and DHCP protocols are used the set of rules to transfer the data other than Internet applications.
+
+Q #14. What is XML?
+
+Ans. XML (eXtensible Markup Language) is a mark-up language that is used for storing, sharing and formatting data. In general, an XML document is built by the tags. For more info and examples, check out this article http://www.softwaretestinghelp.com/web-services-api-testing-tool-soapui-tutorial-1/
+
+Q #15. SoapUI and SoapUI Pro:
+Ans. SoapUI is a webservices testing tool and SoapUI Pro is its commercial version. SoapUI can help create functional, security and load testing test suites. SoapUI Pro does all that with advanced drag and drop, data driven testing, advanced reporting and coverage analysis. Check out this article for more information: http://www.softwaretestinghelp.com/soapui-tutorial-12-soapui-pro-features/
+
+Q #16. What we can do with the help of SoapUI?
+
+SoapUI offers us to perform automation testing which includes functional testing, load testing and data driven testing.
+It also provides in build reporting tool and export test results log provision
+We assert our services using various types of assertions
+Q #17. What hierarchy SoapUI follows to build a proper testing project?
+
+In a SoapUI project, the following order should be maintained.
+
+TestSuite – This is combination of functional tests and logical blocks
+Testcase – Its a group that contains several test steps for the specific aspects of the service.
+Teststep – it contains the set of functional tests
+Q #18. What is the basic method to automate web services in SoapUI?
+
+Ans.
+
+Create a project and add the WSDL file
+Add test suites, Test cases and Test cases- in that order
+Include custom programming/validation using by adding Groovy steps
+Call external data sources if using
+Add assertions if necessary
+Then RUN.
+Q #19. What are SoapUI assertions?
+
+Ans. Assertions compare the parts/all of the response message to the expected outcome.
+
+Q #20. What are the major types of assertions available in SoapUI?
+
+Assertions are the one of the major feature in SoapUI. It offers the following types of assertions.
+
+Simple contains
+Schema compliance
+Simple not contains
+Soap Faults
+Response SLA
+XPath Match
+XQuery Match
+WS security status
+Script Assertion
+WS- Addressing Request or Response Assertion
+Additionally Equals assertion is introduced in SoapUI NG Pro version.
+
+Q #21. Explain about XPath Assertion in SoapUI
+
+In SoapUI, XPath assertion is used for asserting the web service response value by specifying the absolute path. If the absolute path is matched with the response value, then the test case or test suite will be considered as PASS otherwise it will be notified as FAILED. We can see the results of assertion at bottom of the screen where the Assertion tab will have resultant information.
+
+Q #22. What is Data Driven testing?
+
+Data driven testing means to store our test data which includes input and expected output in an external data source called Excel / Database / XML file. Later, we need to iterate the data source using respective component. In SoapUI, Datasource and Datasource Loop test steps are used for performing data driven testing.
+
+Q #23. What are the different types of assertions used in SoapUI?
+
+Ans. The following are the different types of assertions:
+
+Contains & Not Contains
+XPath match
+XQuery match
+Schema compliance
+Soap Faults
+Response SLA
+WS security Status
+Script Assertion
+WS- Addressing Request or Response Assertion
+Q #24. How can assertions be added in SoapUI?
+
+Ans. Receive a response to a request as you normally would follow the below steps:
+
+Create a project, add WSDL
+Add Test suite, Test case and Test steps
+Run the request
+To add assertions:
+– Click on the Add Assertions at the top of log tabs.
+– Configure the assertions as per the type and data required.
+
+For more info and examples, check out this article: http://www.softwaretestinghelp.com/soapui-tutorial-5-soapui-assertions/
+
+Q #25. What is Groovy script and where can it be used?
+
+Ans. Groovy is a scripting language which internally includes all the java libraries – it helps us to customize and add custom validations to SoapUI tests
+
+Q #26. Can custom code be added to SoapUI? If yes, what can be added?
+
+Ans. Yes -Groovy steps and Javascript steps.
+
+Q #27. How to group tests?
+
+Ans. The basic Test suite is a way for us to group tests in SoapUI. When you need a different set of tests, you just have to create a new test suite and create tests as required under it as test cases.
+
+Q #28. How to save the responses received?
+
+Ans. The response values can be saved by clicking on the required request and choosing the “Dump file” location in its properties.
+
+Q #29. What are the properties available in SoapUI?
+
+In SoapUI, there are three levels of properties available. They are,
+
+Custom Properties or Project Level Properties:
+
+These properties are added several times based on our needs and they can be utilized at any test suites, test cases or test steps that belongs to the current project.
+
+Test Suite Level Properties:
+
+Tester can add his own properties with relevant information under the test suites. These properties are available under the corresponding test suite only.
+
+Test case Level Properties: If the tester needs to store their test data within the test cases they can create their own properties inside the test case. So these properties can be accessed within the respective test cases.
+
+Q #30. Explain the procedure to parameterize the endpoint in SoapUI?
+
+Parameterizing feature is most important when we automate the test cases and also this is the beginning of the test step creation process. Let us have look into this.
+
+Create project which has the endpoint information
+If necessary, change the endpoint and assign to the property through the property expansion test step
+Make sure the request information available in the given endpoint address
+During the execution time, property will hold the test value. Providing different input value to the property it is easy to do it through the IDE.
+Q #31. What are the major places that Groovy Script Teststep used?
+
+In SoapUI, we can use Groovy Script in the following two places.
+
+Groovy Script Teststep under the test case
+Script Assertion Test Step
+Q #32. Soap vs REST?
+
+Ans.
+
+SOAP is a protocol and REST is architecture. It allows us to send SOAP envelops to REST based applications.
+REST supports different message formats but SOAP permits XML only.
+REST services are faster and easy to handle.
+SOAP is tied with SMTP and HTTP protocols whereas REST relies on HTTP only.
+SOAP is more secure and structured format.
+REST does not depend on any specific standards as it supports various messaging formats like JSON, CSV and XML.
+SOAP web services allow us to build the client with RESTful services.
+SOAP was introduced for distributed computing.
+After REST’s entry, it accommodated the web by its performance and scalability as it is a light weight component.
+REST is stateless whereas SOAP is a state-ful specification.
+REST uses Uniform Resource Identifier (URI) and it has the methods like GET, PUT, POST and DELETE to expose their resources.
+SOAP uses named operations and interfaces to achieve its business logics.
+Check out this article for more information: http://www.softwaretestinghelp.com/soapui-tutorial-13-soap-vs-rest-services/
+
+Q #33. What is RDF?
+
+Ans. Resource Description Framework- RDF contains the description of the web resources such as title, author, content, and copyright information. It is written using XML. For more info and examples, check out this article http://www.softwaretestinghelp.com/web-services-api-testing-tool-soapui-tutorial-1/
+
+Q #34. What data sources can be used in SoapUI?
+
+Ans.
+
+Excel Files
+CSV Files
+ODBC Sources
+SQL / ADO Objects
+
